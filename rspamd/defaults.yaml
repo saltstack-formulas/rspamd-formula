@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+rspamd:
+  use_upstream_repo: true
+  repo:
+    humanname: Rspamd Official Repository
+
+  pkg: rspamd
+  config: '/etc/rspamd'
+  service:
+    name: rspamd

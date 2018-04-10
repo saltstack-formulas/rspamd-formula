@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+Debian:
+  repo:
+    enabled: true
+    name: deb http://rspamd.com/apt-stable/ {{ grains['oscodename'] }} main
+    file: /etc/apt/sources.list.d/rspamd.list
+    key_url: https://rspamd.com/apt-stable/gpg.key
+
+RedHat:
+  repo:
+    name: rspamd
+    enabled: true
+    file: /etc/yum.repos.d/rspamd.repo
+    key_url: https://rspamd.com/rpm-stable/gpg.key
+    baseurl: http://rspamd.com/rpm-stable/{{ grains['os']|lower }}-{{ grains['osmajorrelease']}}/{{ grains['osarch'] }}/
+    gpgcheck: 1
+    gpgkey: http://rspamd.com/rpm/gpg.key
+
