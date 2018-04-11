@@ -3,5 +3,5 @@
 
 include:
   - rspamd.install
-#  - rspamd.config
+  - rspamd.config
   - rspamd.service

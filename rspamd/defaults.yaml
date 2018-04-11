@@ -6,6 +6,13 @@ rspamd:
     humanname: Rspamd Official Repository
 
   pkg: rspamd
-  config: '/etc/rspamd'
+
+  base_dir: /etc/rspamd
+
+  config:
+    local: {}
+    override: {}
+
   service:
     name: rspamd
+
