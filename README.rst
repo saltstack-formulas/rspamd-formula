@@ -4,6 +4,7 @@ rspamd-formula
 
 A SaltStack formula to install and configure `rspamd <https://rspamd.com>`_.
 
+.. image:: https://travis-ci.org/saltstack-formulas/rspamd-formula.svg?branch=master
 
 **NOTE**
 

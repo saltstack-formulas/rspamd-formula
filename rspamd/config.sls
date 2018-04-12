@@ -21,7 +21,13 @@
     - context:
         data: {{ params|json }}
   {% else %}
-  file.absent
+  file.absent:
   {% endif %}
+    - require:
+      - pkg: rspamd_pkg
+    - require_in:
+      - service: rspamd_service
+    - watch_in:
+      - service: rspamd_service
   {% endfor %}
 {% endfor %}

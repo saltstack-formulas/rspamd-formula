@@ -7,5 +7,3 @@ rspamd_service:
   service.running:
     - name: {{ rspamd.service.name }}
     - enable: true
-    - watch:
-      - pkg: rspamd_pkg

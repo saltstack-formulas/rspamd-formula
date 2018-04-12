@@ -36,3 +36,8 @@ rspamd_repo: {}
 rspamd_pkg:
   pkg.installed:
     - name: {{ rspamd.pkg }}
+    - require_in:
+      - service: rspamd_service
+    - watch_in:
+      - service: rspamd_service
+
