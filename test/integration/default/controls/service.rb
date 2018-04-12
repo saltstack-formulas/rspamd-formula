@@ -17,7 +17,7 @@ control 'rspamd service' do
   }.each do |pn|
     # It takes a while to the port to be listening,
     # se we add a little sleep
-    sleep(2)
+    sleep(5)
     describe port(pn) do
       it { should be_listening }
       its('protocols') { should include 'tcp' }
