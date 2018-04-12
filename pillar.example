@@ -1,0 +1,120 @@
+rspamd:
+  enable_upstream_repo: true
+
+  config:
+    # rspamd uses two type of config files to modify the configuration,
+    # determined by the file extension:
+    #   'inc' files (for configuring the application), 
+    #   'conf' files (to enable/configure modules).
+    #
+    # These file can be used in two ways, defined but the name:
+    #   'local's (which *adds* to the existing config, and
+    #   'override's, which replaces the existing values.
+    #
+    # So
+    #
+    #   some_module.local.inc -> will APPEND to the existing configuration
+    #                            of 'some_module'
+    #   other.override.conf -> will REPLACE the existing config for 'other'
+    #
+    # 'local' files are located under /<config_dir>/local.d/*
+    # 'override' files are located under /<config_dir>/override.d/*
+    #
+    # With two exceptions:
+    #
+    #   /<config_dir>/rspamd.conf.{local,override}
+    #
+    # See https://rspamd.com/doc/quickstart.html#configuring-rspamd for more
+    # details.
+    #
+    # PILLAR USAGE:
+    #
+    # The following pillar
+    #
+    #   rspamd:
+    #     local:
+    #       file-a:
+    #         option1: 1
+    #       file_c:
+    #         module: true
+    #         option2: some_text
+    #     override:
+    #       file-x:
+    #         option1: bla
+    #       rspamd:
+    #         some_parameter:
+    #
+    # will create the following files:
+    #
+    #   /etc/rspamd/local.d/file-a.inc
+    #   /etc/rspamd/local.d/file_c.conf
+    #
+    #   /etc/rspamd/override.d/file-x.inc
+    #
+    #   /etc/rspamd/rspamd.conf.override
+    #
+    # Entries set as empty hashes or with the parameter `enable: false` will
+    # be removed.
+    #
+    #   rspamd:
+    #     local:
+    #       dont_want: {}
+    #
+    # 
+    #   rspamd:
+    #     local:
+    #       dont_want:
+    #         enable: false
+    #         option1: bla
+    #        
+    # Both examples will remove the file
+    #
+    #   /etc/rspamd/local.d/dont_want.inc
+    #
+    # Existing files not being listed in the pillars *WILL NOT* be
+    # managed at all, and will be left as they are.
+    #
+
+    local:
+      rspamd: {}
+        
+      options: {}                 # The file will be removed if exists
+      logging:
+        enable: false             # Same as above
+
+      redis:
+        module: true              # File 'ext' will be set to 'conf'
+        write_servers: localhost
+        read_servers: localhost
+
+      dkim:
+        module: true              # File 'ext' will be set to 'conf'
+        domain:
+          example.com:
+            selector: dkim
+            privkey: /var/lib/rspamd/dkim/example.com.dkim.key
+          example.net:
+            selector: dkim
+            privkey: /var/lib/rspamd/dkim/example.net.dkim.key
+          nom: 1234
+          stri: cadena1
+          lis:
+            - a
+            - b
+            - c
+
+    override:
+      rspamd:
+        options:
+          pidfile: $RUNDIR/rspamd.pid
+          '.include': $CONFDIR/options.inc
+          '.include(try=true; priority=1,duplicate=merge)': $LOCAL_CONFDIR/local.d/options.inc
+          '.include(try=true; priority=10)': $LOCAL_CONFDIR/override.d/options.inc
+
+      options: {}
+      logging: {}
+      worker-normal: {}
+      worker-controller: {}
+      worker-proxy: {}
+
+
