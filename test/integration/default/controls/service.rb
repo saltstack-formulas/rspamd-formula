@@ -20,7 +20,6 @@ control 'rspamd service' do
     sleep(2)
     describe port(pn) do
       it { should be_listening }
-      its('processes') { should cmp /^rspamd/ }
       its('protocols') { should include 'tcp' }
       its('addresses') { should include '0.0.0.0' }
     end
@@ -28,7 +27,6 @@ control 'rspamd service' do
 
   describe port(11334) do
     it { should be_listening }
-    its('processes') { should cmp /^rspamd/ }
     its('protocols') { should include 'tcp' }
     its('addresses') { should include '127.0.0.1' }
   end

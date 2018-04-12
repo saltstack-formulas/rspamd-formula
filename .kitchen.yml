@@ -6,13 +6,22 @@ driver_config:
   use_sudo: false
   privileged: true
   provision_command: mkdir -p /run/sshd
+  run_command: /lib/systemd/systemd
 
 platforms:
   - name: debian-9
+    driver_config:
+      provision_command:
+        - apt-get install udev net-tools -y
   - name: ubuntu-16.04
+    driver_config:
+      provision_command:
+        - apt-get install udev net-tools -y
   - name: centos-7
     driver_config:
       image: saltstack/centos-7-minimal
+      provision_command:
+        - yum install udev net-tools -y
 
 provisioner:
   name: salt_solo
