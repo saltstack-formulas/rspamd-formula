@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 Debian:
+  redis_pkg: redis-server
+  redis_service: redis-server
   repo:
     enabled: true
     name: deb http://rspamd.com/apt-stable/ {{ grains['oscodename'] }} main
@@ -8,6 +10,8 @@ Debian:
     key_url: https://rspamd.com/apt-stable/gpg.key
 
 RedHat:
+  redis_pkg: redis
+  redis_service: redis
   repo:
     name: rspamd
     enabled: true

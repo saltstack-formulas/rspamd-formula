@@ -2,6 +2,7 @@
 # vim: ft=yaml
 rspamd:
   use_upstream_repo: true
+  manage_redis: true
   repo:
     humanname: Rspamd Official Repository
 

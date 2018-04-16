@@ -1,5 +1,9 @@
 rspamd:
   enable_upstream_repo: true
+  # If you want to install the redis-server using this formula, set this
+  # to true. If you want to customize redis, use the redis formula and
+  # set this parameter to false. Default: true
+  manage_redis: true
 
   config:
     # rspamd uses two type of config files to modify the configuration,

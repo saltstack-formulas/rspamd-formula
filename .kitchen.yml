@@ -19,7 +19,6 @@ platforms:
         - apt-get install udev net-tools -y
   - name: centos-7
     driver_config:
-      image: saltstack/centos-7-minimal
       provision_command:
         - yum install udev net-tools -y
 
