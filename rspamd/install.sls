@@ -3,6 +3,15 @@
 
 {% from "rspamd/map.jinja" import rspamd with context %}
 
+{% if rspamd.manage_redis -%}
+rspamd_redis_server:
+  pkg.installed:
+    - name: {{ rspamd.redis_pkg }}
+    - require_in:
+      - pkg: rspamd_pkg
+      - service: rspamd_redis_service
+{%- endif %}
+
 {% if rspamd.use_upstream_repo -%}
   {% if grains.os_family == 'Debian' -%}
 rspamd_repo:
