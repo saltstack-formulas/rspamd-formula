@@ -2,7 +2,7 @@
 # vim: ft=yaml
 rspamd:
   use_upstream_repo: true
-  manage_redis: true
+  manage_redis: false
   repo:
     humanname: Rspamd Official Repository
 
