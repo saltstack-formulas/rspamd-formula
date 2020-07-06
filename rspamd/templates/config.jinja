@@ -5,7 +5,11 @@
   {%- for n, v in attr.items() if n not in control_params or ind != 0 %}
     {%- set operator=' ' if n.startswith('.include') else ' = ' %}
     {%- if v is string %}
+      {%- if v | regex_match('^([0-9]*[smhd])$') %}
+{{ n|indent(ind, True) }}{{ operator }}{{ v }};
+      {%- else %}
 {{ n|indent(ind, True) }}{{ operator }}"{{ v }}";
+      {%- endif %}
     {%- elif v is number %}
 {{ n|indent(ind, True) }}{{ operator }}{{ v|json }};
     {%- elif v is mapping %}
