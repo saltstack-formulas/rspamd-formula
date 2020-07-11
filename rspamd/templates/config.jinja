@@ -1,15 +1,20 @@
 {%- set control_params = ['module','enable'] %}
 {%- set ind_increment = 4 %}
-{%- macro _config(attr, ind=4, operator=' = ') -%}
-  {%- for n, v in attr.items() %}
+{%- macro _config(attr, ind=0, operator=' = ') -%}
+  {#- We skip the module and enable params on first level #}
+  {%- for n, v in attr.items() if n not in control_params or ind != 0 %}
     {%- set operator=' ' if n.startswith('.include') else ' = ' %}
     {%- if v is string %}
-{{ n|indent(ind, True) }}{{ operator }}"{{ v }}";
-    {%- elif v is number %}
+      {%- if v | regex_match('^([0-9]*[smhd])$') %}
 {{ n|indent(ind, True) }}{{ operator }}{{ v }};
-    {%- elif v is mapping  %}
+      {%- else %}
+{{ n|indent(ind, True) }}{{ operator }}"{{ v }}";
+      {%- endif %}
+    {%- elif v is number %}
+{{ n|indent(ind, True) }}{{ operator }}{{ v|json }};
+    {%- elif v is mapping %}
 {{ n|indent(ind, True) }} {
-{{ _config(v, ind+ind_increment) }}
+{{- _config(v, ind+ind_increment) }}
 {{ '}'|indent(ind, True) }}
     {%- elif v is iterable %}
 {{ n|indent(ind, True) }}{{ operator }}["{{ v |join('", "') }}"];
@@ -19,17 +24,4 @@
 # This file managed by Salt, do not edit by hand!!
 # Modify the salt pillar for rspamd, instead.
 #
-{%- for k, v in data.items() %}
-  {#- We skip the module and enable params #}
-  {%- if k not in control_params %}
-    {%- if v is string %}
-{{ k }} = "{{ v }}";
-    {%- elif v is number %}
-{{ k }} = {{ v }};
-    {%- elif v is mapping %}
-{{ k }} {
-{{ _config(v) }}
-};
-    {%- endif %}
-  {%- endif %}
-{%- endfor %}
+{{ _config(data) }}
