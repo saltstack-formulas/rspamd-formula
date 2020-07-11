@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
+---
 rspamd:
   use_upstream_repo: true
   manage_redis: false
@@ -16,4 +17,3 @@ rspamd:
 
   service:
     name: rspamd
-
