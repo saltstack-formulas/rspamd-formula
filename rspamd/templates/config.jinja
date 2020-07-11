@@ -14,7 +14,7 @@
 {{ n|indent(ind, True) }}{{ operator }}{{ v|json }};
     {%- elif v is mapping %}
 {{ n|indent(ind, True) }} {
-{{ _config(v, ind+ind_increment) }}
+{{- _config(v, ind+ind_increment) }}
 {{ '}'|indent(ind, True) }}
     {%- elif v is iterable %}
 {{ n|indent(ind, True) }}{{ operator }}["{{ v |join('", "') }}"];
