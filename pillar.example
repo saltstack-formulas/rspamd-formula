@@ -2,7 +2,7 @@
 # vim: ft=yaml
 ---
 rspamd:
-  enable_upstream_repo: true
+  # enable_upstream_repo: true
   # If you want to install the redis-server using this formula, set this
   # to true. If you want to customize redis, use the redis formula and
   # set this parameter to false. Default: true
@@ -14,7 +14,7 @@ rspamd:
     #   'inc' files (for configuring the application),
     #   'conf' files (to enable/configure modules).
     #
-    # These file can be used in two ways, defined but the name:
+    # These file can be used in two ways, defined by their name:
     #   'local's (which *adds* to the existing config, and
     #   'override's, which replaces the existing values.
     #

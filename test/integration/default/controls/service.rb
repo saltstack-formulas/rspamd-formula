@@ -8,12 +8,12 @@ control 'rspamd service' do
   '
   tag 'rspamd', 'service'
 
-  case os[:family]
-  when 'redhat'
-    redis_service = 'redis'
-  when 'debian'
-    redis_service = 'redis-server'
-  end
+  redis_service = case os[:family]
+                  when 'debian'
+                    'redis-server'
+                  else
+                    'redis'
+                  end
 
   describe service(redis_service) do
     it { should be_enabled }

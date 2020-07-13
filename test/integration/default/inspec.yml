@@ -11,3 +11,4 @@ supports:
   - os-name: debian
   - os-name: centos
   - os-name: ubuntu
+  - os-name: arch
