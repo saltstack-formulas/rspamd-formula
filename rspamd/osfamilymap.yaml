@@ -2,17 +2,15 @@
 # vim: ft=yaml
 ---
 Debian:
-  redis_pkg: redis-server
-  redis_service: redis-server
   repo:
     enabled: true
     name: deb http://rspamd.com/apt-stable/ {{ grains['oscodename'] }} main
     file: /etc/apt/sources.list.d/rspamd.list
     key_url: https://rspamd.com/apt-stable/gpg.key
 
+# Arch has no osmajorrelease and this piece of code makes it fail
+{% if grains['os']|lower != 'arch' %}
 RedHat:
-  redis_pkg: redis
-  redis_service: redis
   repo:
     name: rspamd
     enabled: true
@@ -23,3 +21,7 @@ RedHat:
     # yamllint enable rule:line-length
     gpgcheck: 1
     gpgkey: http://rspamd.com/rpm/gpg.key
+{% endif %}
+
+Arch:
+  use_upstream_repo: false
