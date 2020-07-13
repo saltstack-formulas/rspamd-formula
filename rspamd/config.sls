@@ -18,6 +18,7 @@
   file.managed:
     - source: salt://rspamd/templates/config.jinja
     - template: jinja
+    - makedirs: true
     - context:
         data: {{ params|json }}
   {%- else %}
