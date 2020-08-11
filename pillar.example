@@ -1,3 +1,4 @@
+---
 rspamd:
   enable_upstream_repo: true
   # If you want to install the redis-server using this formula, set this
@@ -8,7 +9,7 @@ rspamd:
   config:
     # rspamd uses two type of config files to modify the configuration,
     # determined by the file extension:
-    #   'inc' files (for configuring the application), 
+    #   'inc' files (for configuring the application),
     #   'conf' files (to enable/configure modules).
     #
     # These file can be used in two ways, defined but the name:
@@ -64,13 +65,13 @@ rspamd:
     #     local:
     #       dont_want: {}
     #
-    # 
+    #
     #   rspamd:
     #     local:
     #       dont_want:
     #         enable: false
     #         option1: bla
-    #        
+    #
     # Both examples will remove the file
     #
     #   /etc/rspamd/local.d/dont_want.inc
@@ -81,7 +82,7 @@ rspamd:
 
     local:
       rspamd: {}
-        
+
       options: {}                 # The file will be removed if exists
       logging:
         enable: false             # Same as above
@@ -120,5 +121,3 @@ rspamd:
       worker-normal: {}
       worker-controller: {}
       worker-proxy: {}
-
-
