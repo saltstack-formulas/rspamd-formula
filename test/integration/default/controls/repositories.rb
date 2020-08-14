@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 control 'repositories' do
   impact 0.6
   title 'Configure the repositories'
   desc '
     Configure the Debian/RedHat repositories for the supported platforms.
   '
-  tag 'repositories','apt','yum'
+  tag 'repositories', 'apt', 'yum'
   ref 'Rspamd prerequisites - Section: Rspamd package repositories', url: 'https://rspamd.com/downloads.html'
 
   case os[:family]

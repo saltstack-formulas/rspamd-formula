@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 control 'rspamd package' do
   impact 1.0
   title 'Manage the Rspamd Package'
