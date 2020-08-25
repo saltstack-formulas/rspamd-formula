@@ -9,10 +9,10 @@ extends: default
 # 2. Any SLS files under directory `test/`, which are actually state files
 # 3. Any YAML files under directory `.kitchen/`, introduced during local testing
 ignore: |
-  rspamd/osfamilymap.yaml
   node_modules/
   test/**/states/**/*.sls
   .kitchen/
+  rspamd/osfamilymap.yaml
 
 yaml-files:
   # Default settings

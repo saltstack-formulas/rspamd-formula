@@ -33,8 +33,13 @@ which contains the currently released version. This formula is versioned accordi
 
 See `Formula Versioning Section <https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#versioning>`_ for more details.
 
+If you need (non-default) configuration, please pay attention to the ``pillar.example`` file and/or `Special notes`_ section.
+
 Contributing to this repo
 -------------------------
+
+Commit messages
+^^^^^^^^^^^^^^^
 
 **Commit message formatting is significant!!**
 

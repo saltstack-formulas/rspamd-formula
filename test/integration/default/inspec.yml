@@ -2,13 +2,12 @@
 # vim: ft=yaml
 ---
 name: default
-title: rspamd-formula
+title: rspamd formula
 maintainer: SaltStack Formulas
 license: Apache-2.0
 summary: Verify that the Rspamd repositories are configured correctly
-version: 0.1.0
 supports:
-  - os-name: debian
-  - os-name: centos
-  - os-name: ubuntu
-  - os-name: arch
+  - platform-name: debian
+  - platform-name: ubuntu
+  - platform-name: centos
+  - platform-name: arch
