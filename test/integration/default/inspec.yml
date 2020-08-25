@@ -1,12 +1,13 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
 name: default
-title: Rspamd
-maintainer: Javier Bértoli
-copyright: Javier Bértoli
-copyright_email: javier@netmanagers.com.ar
+title: rspamd formula
+maintainer: SaltStack Formulas
 license: Apache-2.0
 summary: Verify that the Rspamd repositories are configured correctly
-version: 0.1.0
 supports:
-  - os-name: debian
-  - os-name: centos
-  - os-name: ubuntu
+  - platform-name: debian
+  - platform-name: ubuntu
+  - platform-name: centos
+  - platform-name: arch

@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
+---
 rspamd:
   use_upstream_repo: true
-  manage_redis: false
   repo:
     humanname: Rspamd Official Repository
+
+  manage_redis: false
+  redis_pkg: redis
+  redis_service: redis
 
   pkg: rspamd
 
@@ -16,4 +20,3 @@ rspamd:
 
   service:
     name: rspamd
-

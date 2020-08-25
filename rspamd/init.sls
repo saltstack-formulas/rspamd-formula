@@ -2,6 +2,6 @@
 # vim: ft=sls
 
 include:
-  - rspamd.install
-  - rspamd.config
-  - rspamd.service
+  - .install
+  - .config
+  - .service
