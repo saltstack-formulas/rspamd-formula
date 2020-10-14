@@ -2,7 +2,7 @@
 # vim: ft=yaml
 ---
 rspamd:
-  # enable_upstream_repo: true
+  use_upstream_repo: true
   # If you want to install the redis-server using this formula, set this
   # to true. If you want to customize redis, use the redis formula and
   # set this parameter to false. Default: true
