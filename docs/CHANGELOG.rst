@@ -2,6 +2,34 @@
 Changelog
 =========
 
+`0.1.3 <https://github.com/saltstack-formulas/rspamd-formula/compare/v0.1.2...v0.1.3>`_ (2021-05-03)
+--------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **commitlint:** ensure ``upstream/master`` uses main repo URL [skip ci] (\ `5034c7a <https://github.com/saltstack-formulas/rspamd-formula/commit/5034c7a0702acc4e1865b9c01789701a68746af1>`_\ )
+* **gemfile+lock:** use ``ssf`` customised ``kitchen-docker`` repo [skip ci] (\ `470706c <https://github.com/saltstack-formulas/rspamd-formula/commit/470706c8b0ac8cd08cf811e48cf4486840cb7eef>`_\ )
+* **gitlab-ci:** add ``rubocop`` linter (with ``allow_failure``\ ) [skip ci] (\ `bb3f7f9 <https://github.com/saltstack-formulas/rspamd-formula/commit/bb3f7f902adbe4acc6f5681ec39aca6fad9ac9de>`_\ )
+* **gitlab-ci:** use GitLab CI as Travis CI replacement (\ `d38bd0a <https://github.com/saltstack-formulas/rspamd-formula/commit/d38bd0a6244685d1743b76276db1bec34b650529>`_\ )
+* **kitchen+ci:** use latest pre-salted images (after CVE) [skip ci] (\ `44ef649 <https://github.com/saltstack-formulas/rspamd-formula/commit/44ef6491cccde03cfdaf758671b9460992a9c185>`_\ )
+* **kitchen+gitlab:** adjust matrix to add ``3003`` [skip ci] (\ `17723bc <https://github.com/saltstack-formulas/rspamd-formula/commit/17723bc3c18c159a8732718d9d0729f9f37f733a>`_\ )
+* **kitchen+gitlab-ci:** use latest pre-salted images [skip ci] (\ `c5e085c <https://github.com/saltstack-formulas/rspamd-formula/commit/c5e085c4a965700f332f7919c7d20899c121d9b5>`_\ )
+* **pre-commit:** update hook for ``rubocop`` [skip ci] (\ `0351ab9 <https://github.com/saltstack-formulas/rspamd-formula/commit/0351ab9b7c7c304972abdbede6ac224c310435fd>`_\ )
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **pillar:** fix ``manage_redis`` documentation (\ `382db22 <https://github.com/saltstack-formulas/rspamd-formula/commit/382db226b0599346d3d08ffcc3eced65df6e0f08>`_\ )
+
+Tests
+^^^^^
+
+
+* standardise use of ``share`` suite & ``_mapdata`` state [skip ci] (\ `9156f44 <https://github.com/saltstack-formulas/rspamd-formula/commit/9156f444928d1c4726cfd48443104632625a7423>`_\ )
+
 `0.1.2 <https://github.com/saltstack-formulas/rspamd-formula/compare/v0.1.1...v0.1.2>`_ (2020-10-14)
 --------------------------------------------------------------------------------------------------------
 
