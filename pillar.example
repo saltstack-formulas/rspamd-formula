@@ -4,8 +4,10 @@
 rspamd:
   use_upstream_repo: true
   # If you want to install the redis-server using this formula, set this
-  # to true. If you want to customize redis, use the redis formula and
-  # set this parameter to false. Default: true
+  # to true. It will install the redis-server package for the supported distros
+  # with default parameters. If you want to customize redis, use the redis formula
+  # instead.
+  # Default: false
   manage_redis: true
 
   config:
