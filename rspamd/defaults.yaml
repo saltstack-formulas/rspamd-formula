@@ -6,9 +6,17 @@ rspamd:
   repo:
     humanname: Rspamd Official Repository
 
+  user: _rspamd
+  group: _rspamd
+
   manage_redis: false
   redis_pkg: redis
   redis_service: redis
+
+  manage_dkim_keys: false
+  dkim_keys_dir: /var/lib/rspamd/dkim
+  clean_dkim_keys_dir: false
+  dkim_keys: {}
 
   pkg: rspamd
 

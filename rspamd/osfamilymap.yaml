@@ -17,7 +17,7 @@ RedHat:
     file: /etc/yum.repos.d/rspamd.repo
     key_url: https://rspamd.com/rpm-stable/gpg.key
     # yamllint disable rule:line-length
-    baseurl: http://rspamd.com/rpm-stable/{{ grains['os']|lower }}-{{ grains['osmajorrelease']}}/{{ grains['osarch'] }}/
+    baseurl: http://rspamd.com/rpm-stable/{{ grains['os']|lower }}-{{ grains['osmajorrelease'] }}/{{ grains['osarch'] }}/
     # yamllint enable rule:line-length
     gpgcheck: 1
     gpgkey: http://rspamd.com/rpm/gpg.key
@@ -25,3 +25,5 @@ RedHat:
 
 Arch:
   use_upstream_repo: false
+  user: root
+  group: root
