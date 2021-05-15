@@ -3,5 +3,6 @@
 
 include:
   - .install
+  - .dkim_keys
   - .config
   - .service
