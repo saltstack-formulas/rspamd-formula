@@ -2,6 +2,27 @@
 Changelog
 =========
 
+`0.2.0 <https://github.com/saltstack-formulas/rspamd-formula/compare/v0.1.3...v0.2.0>`_ (2021-05-17)
+--------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* add ``arch-master`` to matrix and update ``.travis.yml`` [skip ci] (\ `2987146 <https://github.com/saltstack-formulas/rspamd-formula/commit/29871461d78e73d2841135163548e667152f8b64>`_\ )
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **readme:** fix headings [skip ci] (\ `c0a296c <https://github.com/saltstack-formulas/rspamd-formula/commit/c0a296cdface1403465ec04f71123ea1ca62eb13>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **dkim:** add state to manage DKIM keys (\ `e4ac895 <https://github.com/saltstack-formulas/rspamd-formula/commit/e4ac895cd93cc161d376d0ed0a5fea20da730cdc>`_\ )
+
 `0.1.3 <https://github.com/saltstack-formulas/rspamd-formula/compare/v0.1.2...v0.1.3>`_ (2021-05-03)
 --------------------------------------------------------------------------------------------------------
 
