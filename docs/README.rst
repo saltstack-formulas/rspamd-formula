@@ -70,7 +70,7 @@ Installs the rspamd package.
 Configures the rspamd package.
 
 ``rspamd.dkim_keys``
-----------------
+^^^^^^^^^^^^^^^^^^^^
 
 Creates and configures the DKIM signing keys for rspamd. See the ``pillar.example`` for examples of how to use it.
 
