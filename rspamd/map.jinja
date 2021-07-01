@@ -6,6 +6,7 @@
 {#- Start imports as #}
 {%- import_yaml tplroot ~ "/defaults.yaml" as default_settings %}
 {%- import_yaml tplroot ~ "/osfamilymap.yaml" as osfamilymap %}
+{%- import_yaml tplroot ~ "/osmap.yaml" as osmap %}
 
 {#- Retrieve the config dict only once #}
 {%- set _config = salt['config.get'](tplroot, default={}) %}
@@ -17,8 +18,12 @@
         osfamilymap,
         grain='os_family',
         merge=salt['grains.filter_by'](
-          _config,
-          default='lookup'
+          osmap,
+          grain='os',
+          merge=salt['grains.filter_by'](
+            _config,
+            default='lookup'
+          )
         )
       )
     )

@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+# os_family: RedHat
+AlmaLinux:
+  repo:
+    # yamllint disable-line rule:line-length
+    baseurl: http://rspamd.com/rpm-stable/centos-{{ grains.get('osmajorrelease', '') }}/{{ grains.get('osarch', '') }}/
+
+Rocky:
+  repo:
+    # yamllint disable-line rule:line-length
+    baseurl: http://rspamd.com/rpm-stable/centos-{{ grains.get('osmajorrelease', '') }}/{{ grains.get('osarch', '') }}/

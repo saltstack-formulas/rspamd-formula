@@ -8,20 +8,16 @@ Debian:
     file: /etc/apt/sources.list.d/rspamd.list
     key_url: https://rspamd.com/apt-stable/gpg.key
 
-# Arch has no osmajorrelease and this piece of code makes it fail
-{% if grains['os']|lower != 'arch' %}
 RedHat:
   repo:
     name: rspamd
     enabled: true
     file: /etc/yum.repos.d/rspamd.repo
     key_url: https://rspamd.com/rpm-stable/gpg.key
-    # yamllint disable rule:line-length
-    baseurl: http://rspamd.com/rpm-stable/{{ grains['os']|lower }}-{{ grains['osmajorrelease'] }}/{{ grains['osarch'] }}/
-    # yamllint enable rule:line-length
+    # yamllint disable-line rule:line-length
+    baseurl: http://rspamd.com/rpm-stable/{{ grains.get('os', '')|lower }}-{{ grains.get('osmajorrelease', '') }}/{{ grains.get('osarch', '') }}/
     gpgcheck: 1
     gpgkey: http://rspamd.com/rpm/gpg.key
-{% endif %}
 
 Arch:
   use_upstream_repo: false
