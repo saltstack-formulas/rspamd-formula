@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-case platform[:family]
-when 'linux', 'arch'
-  rspamd_user = rspamd_group = 'root'
-else
-  rspamd_user = rspamd_group = '_rspamd'
-end
+rspamd_user = rspamd_group = case platform[:family]
+                             when 'linux', 'arch'
+                               'root'
+                             else
+                               '_rspamd'
+                             end
 
 control 'rspamd dkim_keys' do
   impact 1.0
