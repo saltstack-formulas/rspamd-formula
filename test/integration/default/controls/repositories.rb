@@ -11,7 +11,7 @@ control 'repositories' do
 
   case os[:family]
   when 'debian'
-    describe apt('http://rspamd.com/apt-stable') do
+    describe apt('http://rspamd.com/apt-stable/') do
       it { should exist }
       it { should be_enabled }
     end
